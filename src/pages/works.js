@@ -1,6 +1,6 @@
 import React from "react"
 import { Works, GenericH2 } from "../styles/IndexStyles"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import Project from "../components/Project"
 
 const projects = [
