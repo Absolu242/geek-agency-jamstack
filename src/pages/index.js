@@ -14,16 +14,7 @@ import {
 } from "../styles/IndexStyles"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import { library } from "@fortawesome/fontawesome-svg-core"
-// import {
-//   faHeart,
-//   faCode,
-//   faGem,
-//   fab,
-//   fas,
-// } from "@fortawesome/free-solid-svg-icons"
 
-// library.add(faHeart, faCode, faGem, fab, fas)
 import {
   fab,
   faHtml5,
@@ -32,9 +23,10 @@ import {
   faCss3,
   faGalacticSenate,
 } from "@fortawesome/free-brands-svg-icons"
+import Layout from "../components/Layout"
 
-export default () => (
-  <>
+const home = () => (
+  <Layout>
     <section style={{ position: "relative" }}>
       <Banner></Banner>
       <TextWrapper>
@@ -245,5 +237,7 @@ primary"
         </form>
       </FormFive>
     </section>
-  </>
+  </Layout>
 )
+
+export default home

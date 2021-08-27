@@ -6,6 +6,8 @@ const Banner = styled.div`
     display: block;
     height: ${props => (props.parallax ? "80vh" : "100vh")};
     width: 100%;
+    background-image: ${props =>
+      props.different ? "url('developer.jpg')" : "url('banner.jpg')"};
     background-image: url("banner.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -83,7 +85,7 @@ const MoreText = styled.div`
   }
 `
 const SectionTwo = styled.section`
-  background-color: #21b2a6;
+  background-color: ${props => (props.white ? "#ffffff" : "#21b2a6")};
   text-align: center;
   padding: 10rem 0;
   div {
@@ -137,11 +139,11 @@ const GenereicPara = styled.p`
 const GenericH2 = styled.h2`
   font-size: 3rem;
   padding: ${props => (props.none ? "0" : "1.35em 0")};
-  color: #ffffff;
+  color: ${props => (props.dark ? "#4E4852" : "#ffffff")};
   border-bottom: ${props => (props.none ? "0" : "2px solid #1d9c91")};
   text-transform: uppercase;
   letter-spacing: 0.6rem;
-  margin: 0;
+  margin: ${props => (props.some ? "5rem 0 0 0" : "0")};
 `
 
 const SectionFour = styled.section`
@@ -195,15 +197,20 @@ const FormFive = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
+    color: #fff;
   }
   input[type="text"],
   input[type="email"],
   textarea {
-    appearance: none;
     font-size: 2rem;
     background-color: rgba(144, 144, 144, 0.75);
     border-radius: 3px;
     border: none;
+    color: #fff;
+
+    &::placeholder {
+      color: #f2f2f2;
+    }
   }
   input[type="text"],
   input[type="email"] {
@@ -230,6 +237,79 @@ const FormFive = styled.div`
   }
 `
 
+const Footer = styled.footer`
+  position: relative;
+  bottom: 0rem;
+  width: 100%;
+  padding: 6em 0 4em 0;
+  background-color: #1d242a;
+  text-align: center;
+  .icons > * {
+    cursor: pointer;
+    margin-right: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+    letter-spacing: 0.225em;
+    padding: 0;
+    text-transform: uppercase;
+    margin-top: 1rem;
+  }
+`
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  background-color: #1d242a;
+  color: #ffffff;
+  padding: 3rem 0;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .menu__items {
+    display: flex;
+  }
+  .menu__items > * {
+    margin-right: 1rem;
+  }
+`
+const Works = styled.div`
+  background-color: #ffffff;
+  color: #4e4852;
+  padding: 2em 0 1em 0 !important;
+  .gallery__flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
+  }
+`
+
+const GenericH3 = styled.h3`
+  font-size: 3rem;
+  padding: ${props => (props.none ? "0" : "1.35em 0")};
+  color: ${props => (props.dark ? "#4E4852" : "#ffffff")};
+  border-bottom: ${props => (props.none ? "0" : "2px solid #1d9c91")};
+  text-transform: uppercase;
+  letter-spacing: 0.6rem;
+  margin: 0;
+`
+const GenereicParaAbout = styled.p`
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: ${props => (props.lessSpacing ? "0.075em" : "0.225em")};
+  font-size: ${props => (props.lessSize ? "1.5rem" : "2.5rem")};
+  line-height: ${props => (props.lessSize ? "2rem" : "3rem")};
+  color: ${props => (props.grey ? "#4E4852" : "#ffffff")};
+`
+
 export {
   Banner,
   TextWrapper,
@@ -241,4 +321,9 @@ export {
   GenericH2,
   SectionFour,
   FormFive,
+  Footer,
+  Header,
+  Works,
+  GenericH3,
+  GenereicParaAbout,
 }
